@@ -81,3 +81,5 @@ const atualizarUI = () => {
         ulTarefas?.appendChild(li)
     })
 }
+
+atualizarUI()
