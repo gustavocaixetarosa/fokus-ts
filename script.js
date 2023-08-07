@@ -122,11 +122,11 @@ const contagemRegressiva = () => {
 
 function iniciarOuPausar() {
     if (intervaloId) {
-        audioPause.play();
+        // audioPause.play();
         zerar()
         return // early return -- circuit breaker
     }
-    audioPlay.play();
+    // audioPlay.play();
     startPauseBtnText.textContent = "Pausar"
     startPauseBtnIcon.setAttribute('src', `/imagens/pause.png`)
     intervaloId = setInterval(contagemRegressiva, 1000)
