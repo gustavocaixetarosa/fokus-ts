@@ -22,8 +22,7 @@ musica.loop = true
 
 
 let intervaloId = null;
-let tempoDecorridoEmSegundos = 25; // trabalhar em segundos pra ver tudo acontecendo na tela
-//let tempoDecorridoEmSegundos = 25 * 60; -> quando finalizar, fala pro aluno lembrar de multiplicar por 60 pra ter a quantidade de minutos em segundos
+let tempoDecorridoEmSegundos = 25; 
 mostrarTempo()
 
 function alterarBanner(contexto) {
@@ -56,7 +55,6 @@ function alterarBanner(contexto) {
 
 function alterarContexto(contexto) {
     html.setAttribute('data-contexto', contexto)
-    // quando trocamos, zeramos nosso timer e atualizamos o mostrador
     zerar()
     mostrarTempo()
     alterarBanner(contexto)
@@ -66,7 +64,6 @@ function alterarContexto(contexto) {
 }
 
 focoBtn.addEventListener("click", () => {
-    // o mesmo que trocar para short break, mas com tempo diferente
     tempoDecorridoEmSegundos = 25;
     alterarContexto("foco")
     focoBtn.classList.add('active')
@@ -74,13 +71,11 @@ focoBtn.addEventListener("click", () => {
 
 shortBtn.addEventListener("click", () => {
     tempoDecorridoEmSegundos = 5;
-    // tempoDecorridoEmSegundos = 5 * 60; -> quando finalizar, fala pro aluno lembrar de multiplicar por 60 pra ter a quantidade de minutos em segundos
     alterarContexto("short-break")
     shortBtn.classList.add('active')
 })
 
-longBtn.addEventListener("click", () => { // desafio?
-    // o mesmo que trocar para short break, mas com tempo diferente
+longBtn.addEventListener("click", () => {
     tempoDecorridoEmSegundos = 15;
     alterarContexto("long-break")
     longBtn.classList.add('active')
@@ -124,7 +119,7 @@ function iniciarOuPausar() {
     if (intervaloId) {
         audioPause.play();
         zerar()
-        return // early return -- circuit breaker
+        return
     }
     audioPlay.play();
     startPauseBtnText.textContent = "Pausar"
