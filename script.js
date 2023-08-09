@@ -75,7 +75,7 @@ shortBtn.addEventListener("click", () => {
     shortBtn.classList.add('active')
 })
 
-longBtn.addEventListener("click", () => { // desafio?
+longBtn.addEventListener("click", () => {
     tempoDecorridoEmSegundos = 15;
     alterarContexto("long-break")
     longBtn.classList.add('active')
@@ -119,7 +119,7 @@ function iniciarOuPausar() {
     if (intervaloId) {
         audioPause.play();
         zerar()
-        return // early return -- circuit breaker
+        return
     }
     audioPlay.play();
     startPauseBtnText.textContent = "Pausar"
